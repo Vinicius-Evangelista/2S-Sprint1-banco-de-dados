@@ -1,48 +1,52 @@
-CREATE DATABASE OPTUS;
+INSERT INTO EMPRESA (nomeEmpresa)
+VALUES ('OPTUS');
 GO
 
-USE OPTUS;
+SELECT * FROM EMPRESA;
 GO
 
-CREATE TABLE EMPRESA (
-idEmpresa TINYINT PRIMARY KEY IDENTITY (1,1),
-nomeEmpresa VARCHAR(50),
-);
+INSERT INTO USUARIO (idEmpresa, nomeUsuario)
+VALUES (1,'jULIA'),(1,'MARCOS');
+GO
+
+SELECT * FROM USUARIO;
+GO
+
+INSERT INTO ESTILO_MUSICAL (nomeEstiloMusical)
+VALUES ('Sertanejo'),('Bossa nova'),('Gospel');
 GO
 
 
-CREATE TABLE USUARIO(
-idUsuario INT PRIMARY KEY IDENTITY (1,1),
-nomeUsuario VARCHAR(30),
-idEmpresa TINYINT FOREIGN KEY REFERENCES EMPRESA (idEmpresa),
-);
+SELECT * FROM ESTILO_MUSICAL;
 GO
 
-CREATE TABLE ESTILO_MUSICAL(
-idEstiloMusical TINYINT PRIMARY KEY IDENTITY (1,1),
-nomeEstiloMusical VARCHAR(20),
-);
+INSERT INTO ADMINISTRADOR (nomeUser)
+VALUES ('Bino'),('Hugo');
 GO
 
-CREATE TABLE CANTOR (
-idCantor INT PRIMARY KEY IDENTITY (1,1),
-idEstiloMusical TINYINT FOREIGN KEY REFERENCES ESTILO_MUSICAL (idEstiloMusical),
-nomeCantor VARCHAR(70),
-);
+SELECT * FROM ADMINISTRADOR;
 GO
 
-CREATE TABLE MUSICA (
-idMusica INT PRIMARY KEY IDENTITY (1,1),
-idCantor INT FOREIGN KEY REFERENCES CANTOR (idCantor),
-nomeMusica VARCHAR(100),
-);
+INSERT INTO CANTOR (idEstiloMusical, nomeCantor)
+VALUES (1,'Gustavo Lima'),(2,'Tom Jobim'),(3,'Alessandro Vilas Boas');
 GO
 
-CREATE TABLE ALBUNS (
-idAlbum INT PRIMARY KEY IDENTITY (1,1),
-idCantor INT FOREIGN KEY REFERENCES CANTOR (idCantor),
-idMusica INT FOREIGN KEY REFERENCES MUSICA (idMusica),
-idEmpresa TINYINT FOREIGN KEY REFERENCES EMPRESA (idEmpresa),
-nomeAlbum VARCHAR(50),
-);
+SELECT * FROM CANTOR;
 GO
+
+INSERT INTO MUSICA (idCantor, nomeMusica)
+VALUES (1,'SLA'),(2,'Sei lá só sei que a vida tem sempre razão');
+GO
+
+SELECT * FROM MUSICA;
+GO
+
+INSERT INTO ALBUNS (idEmpresa, nomeAlbum, idMusica, idCantor)
+VALUES (1,'Sou feliz',1,3),(1,'Sou feliz',2,3);
+GO
+
+DELETE FROM ALBUNS WHERE idAlbum = 2;
+GO
+
+
+
