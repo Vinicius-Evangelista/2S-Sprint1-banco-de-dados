@@ -3,8 +3,24 @@ GO
 
 --DQL
 
-SELECT * FROM CARRO;
+SELECT idAluguel, dataAluguel, fimAluguel, nomeCliente, nomeModelo
+FROM ALUGUEL 
+RIGHT JOIN CLIENTE
+ON CLIENTE.idCliente = ALUGUEL.idCliente
+LEFT JOIN MODELO
+ON ALUGUEL.idModelo = MODELO.idModelo;
 GO
+
+SELECT nomeCliente, dataAluguel, fimAluguel,  nomeModelo
+FROM ALUGUEL 
+LEFT JOIN CLIENTE
+ON CLIENTE.idCliente = ALUGUEL.idCliente
+LEFT JOIN MODELO
+ON ALUGUEL.idModelo = MODELO.idModelo;
+GO
+
+-- FEITO
+
 SELECT * FROM MODELO;
 GO
 SELECT * FROM EMPRESA;

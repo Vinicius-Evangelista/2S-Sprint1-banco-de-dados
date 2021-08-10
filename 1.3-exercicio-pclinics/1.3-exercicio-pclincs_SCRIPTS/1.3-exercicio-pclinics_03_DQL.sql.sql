@@ -3,12 +3,43 @@ GO
 
 --DQL
 
-SELECT * FROM ATENDIMENTO;
+SELECT nomeVeterinario, CRMV, razaoSocial 
+FROM CLINICA
+RIGHT JOIN VETERINARIO
+ON CLINICA.idClinica = VETERINARIO.idClinica;
 GO
-SELECT * FROM PET;
+
+
+
+
+SELECT nomeDono, nomePet 
+FROM PET
+LEFT JOIN DONO
+ON Pet.idDono = Dono.idDono;
 GO
-SELECT * FROM RACA;
+
+
+SELECT nomePet FROM PET
+LIKE %s = s;
 GO
+
+
+SELECT nomeVeterinario, nomePet, nomeRaca, nomeTipoPet, nomeDono, razaoSocial
+FROM ATENDIMENTO
+LEFT JOIN PET
+ON ATENDIMENTO.idPet = Pet.idPet
+INNER JOIN RACA
+ON PET.idRaca = RACA.idRaca
+INNER JOIN TIPOPET
+ON TIPOPET.idTipoPet = RACA.idTipoPet
+INNER JOIN VETERINARIO
+ON ATENDIMENTO.idVeterinario = VETERINARIO.idVeterinario
+INNER JOIN DONO
+ON PET.idDono = Dono.idDono
+INNER JOIN CLINICA
+ON ATENDIMENTO.idClinica = CLINICA.idClinica;
+GO
+
 SELECT * FROM TIPOPET;
 GO
 SELECT * FROM CLINICA;

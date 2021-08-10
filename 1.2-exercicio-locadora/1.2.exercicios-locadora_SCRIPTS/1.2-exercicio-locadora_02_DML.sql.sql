@@ -20,8 +20,8 @@ INSERT INTO CARRO (placaCarro, idEmpresa, idModelo)
 VALUES ('1211000',1,3);
 GO
 
-INSERT INTO ALUGUEL (idCarro, idCliente, dataAluguel )
-VALUES (7,1, '10/09/2021');
+INSERT INTO ALUGUEL (idCarro, idCliente, dataAluguel, idModelo )
+VALUES (7,1, '10/09/2021',3);
 GO
 
 
