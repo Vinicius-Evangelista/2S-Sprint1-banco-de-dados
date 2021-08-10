@@ -41,8 +41,7 @@ idClasse TINYINT FOREIGN KEY REFERENCES CLASSE(idClasse),
 nomePersonagem VARCHAR (200) NOT NULL,
 capacidadeVidaMax SMALLINT NOT NULL,
 CapacidadeManaMax TINYINT NOT NULL,
-dataUtilizacao DATETIME NOT NULL,
-dataCriacao DATETIME NOT NULL
+dataUtilizacao DATE NOT NULL,
+dataCriacao DATE NOT NULL
 );
 GO
-
