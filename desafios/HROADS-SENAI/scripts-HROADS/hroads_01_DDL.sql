@@ -1,9 +1,14 @@
+
+--Criar banco de dados com o devido nome
 CREATE DATABASE SENAI_HROADS_TARDE;
 GO
 
 USE SENAI_HROADS_TARDE;
 GO
 
+--DDL
+
+--Criar as tabelas do banco de dados
 CREATE TABLE TIPOHABILIDADE (
 idTipoHabilidade TINYINT PRIMARY KEY IDENTITY (1,1),
 nomeTipoHabilidade VARCHAR(100) NOT NULL
